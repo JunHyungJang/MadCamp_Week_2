@@ -20,6 +20,7 @@ public class frag1_class extends Fragment {
     private ImageView image1;
     private ImageView image2;
     private ImageView image3;
+    int order=1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class frag1_class extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, choose_one.class);
+                i.putExtra("order",order);
                 context.startActivity(i);
             }
         });
