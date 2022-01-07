@@ -84,6 +84,7 @@ public class choose_one extends Fragment {
                     fragment.setArguments(bundle);
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
                     fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), fragment);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();

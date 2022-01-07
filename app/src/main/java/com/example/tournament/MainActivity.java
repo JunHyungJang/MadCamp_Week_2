@@ -6,6 +6,7 @@ import android.content.pm.Signature;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -44,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
         settingTabLayout();
 
+
     }
+
+
     private void getHashKey(){
         PackageInfo packageInfo = null;
         try {
@@ -94,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(pagerAdapter);
 
         viewPager.setUserInputEnabled(false); //이 줄을 주석처리 하면 슬라이딩으로 탭을 바꿀 수 있다
+
 
     }
 

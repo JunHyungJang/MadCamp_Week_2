@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 
-public class LoginFragment extends Fragment {
+public class AfterLogin extends Fragment {
 
     private String strNick, strProfileImg,strEmail;
     private Context context;
@@ -26,7 +26,7 @@ public class LoginFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.login, container,false);
+        View root = inflater.inflate(R.layout.afterlogin, container,false);
         context = getContext();
 
         strNick = getArguments().getString("name");

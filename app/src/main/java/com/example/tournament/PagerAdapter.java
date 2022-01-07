@@ -38,4 +38,11 @@ public class PagerAdapter extends FragmentStateAdapter {
         return mFragmentList.size();
 
     }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+
 }
