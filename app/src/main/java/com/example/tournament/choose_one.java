@@ -84,7 +84,7 @@ public class choose_one extends Fragment {
                     fragment.setArguments(bundle);
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.choose_one, fragment);
+                    fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), fragment);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 } else {
@@ -95,7 +95,7 @@ public class choose_one extends Fragment {
                     fragment.setArguments(bundle);
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.choose_one, fragment);
+                    fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), fragment);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 }
@@ -112,7 +112,7 @@ public class choose_one extends Fragment {
                     fragment.setArguments(bundle);
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.choose_one, fragment);
+                    fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), fragment);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 } else {
@@ -123,13 +123,12 @@ public class choose_one extends Fragment {
                     fragment.setArguments(bundle);
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.choose_one, fragment);
+                    fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), fragment);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 }
             }
         });
-
         return root;
     }
 }

@@ -37,6 +37,7 @@ public class frag1_class extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment1, container,false);
+
         context = getContext();
         BitImages = new ArrayList<>();
         image1 = root.findViewById(R.id.imageView1);
@@ -61,7 +62,6 @@ public class frag1_class extends Fragment {
         BitImages.add(R.drawable.images16);
 
 
-
         Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(),BitImages.get(0));
         image1.setImageBitmap(bitmap1);
 
@@ -82,7 +82,7 @@ public class frag1_class extends Fragment {
                 fragment.setArguments(bundle);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment1,fragment);
+                fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(),fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
