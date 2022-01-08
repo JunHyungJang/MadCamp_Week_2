@@ -7,16 +7,20 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
 
 public class tournament_winner extends Fragment {
 
     Context context;
+    Button btn_redo;
     ArrayList<Integer> BitImages;
     private ImageView image;
 
@@ -35,6 +39,20 @@ public class tournament_winner extends Fragment {
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), BitImages.get(0));
         image.setImageBitmap(bitmap);
+
+        btn_redo = root.findViewById(R.id.redo);
+
+        btn_redo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = new tournament_start();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(),fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
         return root;
     }
