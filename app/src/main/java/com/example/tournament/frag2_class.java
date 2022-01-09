@@ -1,68 +1,40 @@
 package com.example.tournament;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager2.widget.ViewPager2;
 
-import java.util.zip.Inflater;
+import java.util.ArrayList;
 
 public class frag2_class extends Fragment {
 
-    TextView tvData;
-    Button btn_camera, btn_push;
-    ImageView imageView;
-    Inflater inflater;
-
-
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment2, container,false);
-        btn_camera = root.findViewById(R.id.btn);
-        imageView = root.findViewById(R.id.imageview);
-        tvData = root.findViewById(R.id.tvData);
-        btn_camera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.btn:
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment2, container, false);
+        Fragment fragment = new CameraMain();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_2,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
 
-                        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        startActivityForResult(i, 0);
-                        break;
-                }
-            }
-        });
-
-            return root;
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 0) {
-            Bundle extras = data.getExtras();
-
-            Bitmap bitmap = (Bitmap) extras.get("data");
-
-            imageView.setImageBitmap(bitmap);
-        }
+        return root;
     }
 }

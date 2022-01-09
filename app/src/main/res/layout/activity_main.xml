@@ -19,7 +19,7 @@
             android:id="@+id/tab1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="이상형 월드컵" />
+            android:text="마이 페이지" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tab2"
@@ -31,7 +31,7 @@
             android:id="@+id/tab3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="마이 페이지" />
+            android:text="이상형 월드컵" />
 
     </com.google.android.material.tabs.TabLayout>
 
