@@ -1,5 +1,6 @@
 package com.example.tournament;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -20,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -28,9 +30,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class CameraMain extends Fragment {
+public class CameraMain extends Fragment implements Dialog_2.OnInputSelected {
     TextView tvData;
-    Button btn_camera, btn_push, btn_gallery;
+    Button btn_camera, btn_push, btn_gallery,choose,btn_male,btn_female,btn_cat;
     String strNick, strProfileImg,strEmail;
     ImageView imageView;
     Bitmap bitmap;
@@ -39,6 +41,9 @@ public class CameraMain extends Fragment {
     File sendFile;
     Context context;
     Integer GET_GALLERY_IMAGE = 200;
+    Object [] arr = new Object[3];
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,20 +58,28 @@ public class CameraMain extends Fragment {
         btn_push = root.findViewById(R.id.btn2);
         btn_gallery = root.findViewById(R.id.btn_gallery);
         imageView = root.findViewById(R.id.imageview);
-        tvData = root.findViewById(R.id.tvData);
         context = getContext();
+        choose = root.findViewById(R.id.choose);
 
-        Bundle bundle = getArguments();
+        getParentFragmentManager().setFragmentResultListener("key", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                String account = result.getString("bundlekey");
+                Log.d("asdkjfhla",account);
+                arr[0] = account;
+            }
+        });
 
-        if (bundle!=null) {
 
-            strNick = getArguments().getString("name");
-            Log.d("test",strNick);
-            strProfileImg = getArguments().getString("ProfileImage");
-            strEmail = getArguments().getString("email");
-        }
-//        Log.d("test",strNick);
 
+
+        choose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog_2 dialog = new Dialog_2();
+                dialog.show(getChildFragmentManager(),"checking");
+            }
+        });
 
         fos = null;
 
@@ -84,6 +97,7 @@ public class CameraMain extends Fragment {
         btn_push.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+
                 FileUploadUtils.send2Server(sendFile);
             }
         });
@@ -123,6 +137,7 @@ public class CameraMain extends Fragment {
             }
             btn_push.setEnabled(true);
             imageView.setImageBitmap(bitmap);
+            arr[2] = bitmap;
         }
 
         if (requestCode == GET_GALLERY_IMAGE){
@@ -130,8 +145,18 @@ public class CameraMain extends Fragment {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),uri);
                 imageView.setImageBitmap(bitmap);
+                arr[2] = bitmap;
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-}}
+}
+
+    public void sendInput(String type) {
+        arr[1] = type;
+        Log.d("asdffads",type);
+    }
+
+
+}

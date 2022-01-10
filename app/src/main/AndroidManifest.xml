@@ -12,8 +12,7 @@
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tournament"
-        android:name=".CustomApplication"
-        >
+        android:name=".CustomApplication">
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,6 +21,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Empty">
+
         </activity>
         <meta-data
             android:name="com.kakao.sdk.AppKey"

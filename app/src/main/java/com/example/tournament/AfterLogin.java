@@ -1,6 +1,7 @@
 package com.example.tournament;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Camera;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
@@ -37,21 +39,20 @@ public class AfterLogin extends Fragment {
         strProfileImg = getArguments().getString("ProfileImage");
         strEmail = getArguments().getString("email");
 
-        bundle = new Bundle();
-        bundle.putString("name",strNick);
-        bundle.putString("ProfileImage",strProfileImg);
-        bundle.putString("email",strEmail);
-        Fragment fragment = new CameraMain();
-        fragment.setArguments(bundle);
+        Bundle result = new Bundle();
+        result.putString("bundlekey",strNick);
+        getParentFragmentManager().setFragmentResult("key",result);
+
+
+
+
+
 
         TextView tv_nick = root.findViewById(R.id.tv_nickName);
         TextView tv_email = root.findViewById(R.id.tv_email);
         ImageView iv_profile = root.findViewById(R.id.iv_profile);
 
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+
 
 
         //닉네임 set

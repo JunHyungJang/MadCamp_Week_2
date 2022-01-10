@@ -2,6 +2,7 @@ package com.example.tournament;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,8 @@ public class Dialog extends DialogFragment {
         seekBar = root.findViewById(R.id.seekBar);
         toggleGroup = root.findViewById(R.id.toggleButtonGroup);
         context = getContext();
+
+
 
         toggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
             @Override
