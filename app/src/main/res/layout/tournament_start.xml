@@ -44,13 +44,14 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="183dp"
-        android:layout_height="83dp"
+        android:layout_width="182dp"
+        android:layout_height="51dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="50dp"
-        android:text="이상형 월드컵 시작"
+        android:text="월드컵 설정"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top3" />
 
@@ -70,6 +71,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="200dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="32dp"
+        android:text="이상형 월드컵 시작"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
