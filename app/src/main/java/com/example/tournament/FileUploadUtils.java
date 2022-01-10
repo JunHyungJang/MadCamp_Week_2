@@ -18,8 +18,8 @@ public class FileUploadUtils {
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("files", file.getName(), RequestBody.create(MultipartBody.FORM,file))
-                .addFormDataPart("name","김진석")
-                .addFormDataPart("sex","남")
+                .addFormDataPart("name","JinSeok")
+                .addFormDataPart("sex","man")
                 .build();
         Request request = new Request.Builder()
                 .url("http://172.10.18.154/upload") // Server URL 은 본인 IP를 입력
