@@ -16,7 +16,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.button.MaterialButtonToggleGroup;
-import com.google.firebase.database.core.Tag;
 
 public class Dialog_2 extends DialogFragment {
     Context context;

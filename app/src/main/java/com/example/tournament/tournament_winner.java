@@ -40,7 +40,7 @@ public class tournament_winner extends Fragment {
 
         URL_list = getArguments().getStringArrayList("URL_list");
 
-        Glide.with(context).load(Uri.parse("http://172.10.18.154/".concat(URL_list.get(0)))).into(image);
+        Glide.with(context).load(Uri.parse("http://192.249.18.154/".concat(URL_list.get(0)))).into(image);
 
         btn_redo = root.findViewById(R.id.redo);
 

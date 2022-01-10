@@ -55,9 +55,9 @@ public class tournament_start extends Fragment implements Dialog.OnInputSelected
         final Button btn_start = root.findViewById(R.id.button);
         start_world_cup = root.findViewById(R.id.button2);
 
-        Glide.with(context).load(Uri.parse("http://172.10.18.154/images1.bmp")).into(image1);
-        Glide.with(context).load(Uri.parse("http://172.10.18.154/images2.bmp")).into(image2);
-        Glide.with(context).load(Uri.parse("http://172.10.18.154/images3.bmp")).into(image3);
+        Glide.with(context).load(Uri.parse("http://192.249.18.154/images1.bmp")).into(image1);
+        Glide.with(context).load(Uri.parse("http://192.249.18.154/images2.bmp")).into(image2);
+        Glide.with(context).load(Uri.parse("http://192.249.18.154/images3.bmp")).into(image3);
 
 
         bundle = new Bundle();
@@ -78,6 +78,19 @@ public class tournament_start extends Fragment implements Dialog.OnInputSelected
         start_world_cup.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                int start_round = URL_list.size();
+                if(start_round==16){
+                    order = 0;
+                }
+                else if(start_round==8){
+                    order = 8;
+                }
+                else if(start_round==4){
+                    order = 12;
+                }
+                else{
+                    order = 14;
+                }
                 bundle.putInt("order",order);
                 bundle.putStringArrayList("URL_list",URL_list);
                 Fragment fragment = new choose_one();
