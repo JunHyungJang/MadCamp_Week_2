@@ -6,6 +6,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +19,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class choose_one extends Fragment {
     Context context;
     int order;
     int inorder;
-    ArrayList<Integer> BitImages;
+    private ArrayList<String> URL_list;
     private ImageView image_first;
     private ImageView image_second;
     private ProgressBar progressBar;
@@ -48,12 +51,12 @@ public class choose_one extends Fragment {
         progressBar.setMax(80);
         progressBar.setProgressTintList(ColorStateList.valueOf(Color.RED));
 
-        BitImages = new ArrayList<>();
+        URL_list = new ArrayList<>();
 
         image_first = root.findViewById(R.id.imageView_first);
         image_second = root.findViewById(R.id.imageView_second);
         order = getArguments().getInt("order");
-        BitImages = getArguments().getIntegerArrayList("BitImages");
+        URL_list = getArguments().getStringArrayList("URL_list");
 
         if(order<=7){
             cur_progress=0;
@@ -84,14 +87,8 @@ public class choose_one extends Fragment {
             second = inorder+1;
         }
 
-        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), BitImages.get(first));
-        image_first.setImageBitmap(bitmap1);
-
-        Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), BitImages.get(second));
-        image_second.setImageBitmap(bitmap2);
-
-
-
+        Glide.with(context).load(Uri.parse("http://172.10.18.154/".concat(URL_list.get(first)))).into(image_first);
+        Glide.with(context).load(Uri.parse("http://172.10.18.154/".concat(URL_list.get(second)))).into(image_second);
         bundle = new Bundle();
 
 
@@ -99,8 +96,8 @@ public class choose_one extends Fragment {
             @Override
             public void onClick(View v) {
                 if (order == 14) {
-                    BitImages.remove(second);
-                    bundle.putIntegerArrayList("BitImages",BitImages);
+                    URL_list.remove(second);
+                    bundle.putStringArrayList("URL_list",URL_list);
                     Fragment fragment = new tournament_winner();
                     fragment.setArguments(bundle);
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -110,9 +107,9 @@ public class choose_one extends Fragment {
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 } else {
-                    BitImages.remove(second);
+                    URL_list.remove(second);
                     bundle.putInt("order",order+1);
-                    bundle.putIntegerArrayList("BitImages",BitImages);
+                    bundle.putStringArrayList("URL_list",URL_list);
                     Fragment fragment = new choose_one();
                     fragment.setArguments(bundle);
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -128,8 +125,8 @@ public class choose_one extends Fragment {
             @Override
             public void onClick(View v) {
                 if (order == 14) {
-                    BitImages.remove(first);
-                    bundle.putIntegerArrayList("BitImages",BitImages);
+                    URL_list.remove(first);
+                    bundle.putStringArrayList("URL_list",URL_list);
                     Fragment fragment = new tournament_winner();
                     fragment.setArguments(bundle);
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -138,9 +135,9 @@ public class choose_one extends Fragment {
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 } else {
-                    BitImages.remove(first);
+                    URL_list.remove(first);
                     bundle.putInt("order",order+1);
-                    bundle.putIntegerArrayList("BitImages",BitImages);
+                    bundle.putStringArrayList("URL_list",URL_list);
                     Fragment fragment = new choose_one();
                     fragment.setArguments(bundle);
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();

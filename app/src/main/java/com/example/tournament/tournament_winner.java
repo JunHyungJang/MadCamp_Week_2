@@ -3,6 +3,7 @@ package com.example.tournament;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,13 +16,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class tournament_winner extends Fragment {
 
     Context context;
     Button btn_redo;
-    ArrayList<Integer> BitImages;
+    ArrayList<String> URL_list;
     private ImageView image;
 
     @Override
@@ -35,10 +38,9 @@ public class tournament_winner extends Fragment {
         context = getContext();
         image = root.findViewById(R.id.imageView);
 
-        BitImages = getArguments().getIntegerArrayList("BitImages");
+        URL_list = getArguments().getStringArrayList("URL_list");
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), BitImages.get(0));
-        image.setImageBitmap(bitmap);
+        Glide.with(context).load(Uri.parse("http://172.10.18.154/".concat(URL_list.get(0)))).into(image);
 
         btn_redo = root.findViewById(R.id.redo);
 
