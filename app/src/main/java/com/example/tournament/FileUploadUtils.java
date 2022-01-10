@@ -15,8 +15,6 @@ import okhttp3.Response;
 
 public class FileUploadUtils {
     public static void send2Server(File file){
-        File refile = new File("김진석,남");
-        file.renameTo(refile);
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("files", file.getName(), RequestBody.create(MultipartBody.FORM,file))
