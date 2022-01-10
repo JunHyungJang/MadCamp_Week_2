@@ -1,9 +1,6 @@
 package com.example.tournament;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -17,13 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager2.widget.ViewPager2;
 
 import com.bumptech.glide.Glide;
-
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -61,7 +53,7 @@ public class tournament_start extends Fragment {
         image1 = root.findViewById(R.id.imageView1);
         image2 = root.findViewById(R.id.imageView2);
         image3 = root.findViewById(R.id.imageView3);
-        btn_worldcup = root.findViewById(R.id.btn_worldcup);
+        //btn_worldcup = root.findViewById(R.id.btn_worldcup);
         final Button btn_start = root.findViewById(R.id.button);
         BitImages.add(R.drawable.images1);
         BitImages.add(R.drawable.images2);
@@ -95,29 +87,31 @@ public class tournament_start extends Fragment {
 
 
 
-        btn_worldcup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("test","button");
-                 new JSONTask().execute("http://192.249.18.154/name");
-
-                    }
-                });
+//        btn_worldcup.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Log.d("test","button");
+//                 new JSONTask().execute("http://192.249.18.154/name");
+//                    }
+//                });
 
 
 
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bundle.putInt("order", order);
-                bundle.putIntegerArrayList("BitImages", BitImages);
-                Fragment fragment = new choose_one();
-                fragment.setArguments(bundle);
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(((ViewGroup) getView().getParent()).getId(), fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                Dialog dialog = new Dialog();
+                dialog.show(getChildFragmentManager(),"Dialog");
+
+//                bundle.putInt("order", order);
+//                bundle.putIntegerArrayList("BitImages", BitImages);
+//                Fragment fragment = new choose_one();
+//                fragment.setArguments(bundle);
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.replace(((ViewGroup) getView().getParent()).getId(), fragment);
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
             }
         });
 
