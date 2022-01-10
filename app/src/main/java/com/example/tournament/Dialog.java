@@ -70,6 +70,8 @@ public class Dialog extends DialogFragment implements AsyncResponse {
         order = 0;
 
 
+
+
         toggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
             @Override
             public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
