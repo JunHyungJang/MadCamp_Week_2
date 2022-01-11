@@ -11,70 +11,58 @@
 
     <Button
         android:id="@+id/btn"
-        android:layout_width="129dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="10dp"
         android:layout_weight="1"
         android:backgroundTint="@color/cardview_dark_background"
         android:fontFamily="@font/jua"
         android:text="촬영"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintTop_toBottomOf="@+id/imageview" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:fontFamily="@font/jua"
+        android:text="사진등록"
+        app:layout_constraintEnd_toEndOf="@+id/btn"
+        app:layout_constraintStart_toStartOf="@+id/btn"
+        app:layout_constraintTop_toBottomOf="@+id/btn" />
+
+    <Button
+        android:id="@+id/btn_gallery"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:fontFamily="@font/jua"
+        android:text="갤러리 불러오기"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageview" />
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="356dp"
+        android:layout_height="290dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/cardview_dark_background"
-        android:fontFamily="@font/jua"
-        android:text="사진등록"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/choose"
-        app:layout_constraintHorizontal_bias="0.467"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageview"
-        app:layout_constraintVertical_bias="0.121" />
-
-    <Button
-        android:id="@+id/btn_gallery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/cardview_dark_background"
-        android:fontFamily="@font/jua"
-        android:text="갤러리 불러오기"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.024"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/imageview"
-        android:layout_width="392dp"
-        android:layout_height="309dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.475"
-        tools:ignore="MissingConstraints" />
-
-    <Button
         android:id="@+id/choose"
-        android:layout_width="97dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/cardview_dark_background"
         android:fontFamily="@font/jua"
         android:text="타입선택"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.716"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageview" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_gallery"
+        app:layout_constraintStart_toStartOf="@+id/btn_gallery"
+        app:layout_constraintTop_toBottomOf="@+id/btn_gallery" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

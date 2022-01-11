@@ -97,7 +97,7 @@ public class CameraMain extends Fragment implements Dialog_2.OnInputSelected {
         btn_push.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (arr[0] != null && arr[1]!= null && arr[2]!= null) //arr[0] 계정, arr[1] type
+                if (arr[0] != null && arr[1]!= null) //arr[0] 계정, arr[1] type
                 FileUploadUtils.send2Server(sendFile,arr[0],arr[1]);
             }
         });

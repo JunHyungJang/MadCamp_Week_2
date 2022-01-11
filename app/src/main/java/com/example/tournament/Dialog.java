@@ -65,7 +65,7 @@ public class Dialog extends DialogFragment implements AsyncResponse {
         asyncTask.delegate = this;
         bundle = new Bundle();
         URL_list = new ArrayList<>();
-        type = "cat";
+        type = "male";
         start_round = "16";
         order = 0;
 
