@@ -186,7 +186,7 @@ start_world_cup.setOnClickListener(new View.OnClickListener(){
   
   Worldcup 시작 버튼을 누르면, fragment간의 이동을 통해 정보를 전달함.
   
-  ### 3. error handling 과 아쉬운 점
+  ### 4. error handling 과 아쉬운 점
   
   #error handling
   fragment간에 화면을 전환하지 않고 정보를 전달하고 싶었는데 interface를 통한 listener을 설정하여 구현하였다.
