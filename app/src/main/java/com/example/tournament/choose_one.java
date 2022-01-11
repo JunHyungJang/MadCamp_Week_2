@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,32 +93,64 @@ public class choose_one extends Fragment {
         Glide.with(context).load(Uri.parse("http://192.249.18.154/".concat(URL_list.get(second)))).into(image_second);
         bundle = new Bundle();
 
+        Bundle d_args = new Bundle();
+
 
         image_first.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (order == 14) {
-                    URL_list.remove(second);
-                    bundle.putStringArrayList("URL_list",URL_list);
-                    Fragment fragment = new tournament_winner();
-                    fragment.setArguments(bundle);
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    d_args.putString("URL",URL_list.get(first));
+                    choose_one_winner dialog = new choose_one_winner();
+                    dialog.setArguments(d_args);
+                    dialog.show(getChildFragmentManager(),"Dialog");
 
-                    fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), fragment);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
+
+                    new Handler().postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            dialog.dismiss();
+                            URL_list.remove(second);
+                            bundle.putStringArrayList("URL_list",URL_list);
+                            Fragment fragment = new tournament_winner();
+                            fragment.setArguments(bundle);
+                            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                            fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), fragment);
+                            fragmentTransaction.addToBackStack(null);
+                            fragmentTransaction.commit();
+                        }
+                    }, 600);// 0.6초 정도 딜레이를 준 후 시작
+
+
                 } else {
-                    URL_list.remove(second);
-                    bundle.putInt("order",order+1);
-                    bundle.putStringArrayList("URL_list",URL_list);
-                    Fragment fragment = new choose_one();
-                    fragment.setArguments(bundle);
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), fragment);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
+                    d_args.putString("URL",URL_list.get(first));
+                    choose_one_winner dialog = new choose_one_winner();
+                    dialog.setArguments(d_args);
+                    dialog.show(getChildFragmentManager(),"Dialog");
+                    new Handler().postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            dialog.dismiss();
+                            URL_list.remove(second);
+                            bundle.putInt("order",order+1);
+                            bundle.putStringArrayList("URL_list",URL_list);
+                            Fragment fragment = new choose_one();
+                            fragment.setArguments(bundle);
+                            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                            fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), fragment);
+                            fragmentTransaction.addToBackStack(null);
+                            fragmentTransaction.commit();
+                        }
+                    }, 600);// 0.6초 정도 딜레이를 준 후 시작
+
+
                 }
             }
         });
@@ -126,26 +159,55 @@ public class choose_one extends Fragment {
             @Override
             public void onClick(View v) {
                 if (order == 14) {
-                    URL_list.remove(first);
-                    bundle.putStringArrayList("URL_list",URL_list);
-                    Fragment fragment = new tournament_winner();
-                    fragment.setArguments(bundle);
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), fragment);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
+                    d_args.putString("URL",URL_list.get(second));
+                    choose_one_winner dialog = new choose_one_winner();
+                    dialog.setArguments(d_args);
+                    dialog.show(getChildFragmentManager(),"Dialog");
+
+                    new Handler().postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            dialog.dismiss();
+
+                            URL_list.remove(first);
+                            bundle.putStringArrayList("URL_list",URL_list);
+                            Fragment fragment = new tournament_winner();
+                            fragment.setArguments(bundle);
+                            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                            fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), fragment);
+                            fragmentTransaction.addToBackStack(null);
+                            fragmentTransaction.commit();
+                        }
+                    }, 600);// 0.6초 정도 딜레이를 준 후 시작
+
                 } else {
-                    URL_list.remove(first);
-                    bundle.putInt("order",order+1);
-                    bundle.putStringArrayList("URL_list",URL_list);
-                    Fragment fragment = new choose_one();
-                    fragment.setArguments(bundle);
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), fragment);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
+                    d_args.putString("URL",URL_list.get(second));
+                    choose_one_winner dialog = new choose_one_winner();
+                    dialog.setArguments(d_args);
+                    dialog.show(getChildFragmentManager(),"Dialog");
+                    new Handler().postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            dialog.dismiss();
+                            URL_list.remove(first);
+                            bundle.putInt("order",order+1);
+                            bundle.putStringArrayList("URL_list",URL_list);
+                            Fragment fragment = new choose_one();
+                            fragment.setArguments(bundle);
+                            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                            fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), fragment);
+                            fragmentTransaction.addToBackStack(null);
+                            fragmentTransaction.commit();
+
+                        }
+                    }, 600);// 0.6초 정도 딜레이를 준 후 시작
+
                 }
             }
         });
