@@ -11,8 +11,8 @@
         android:id="@+id/textView6"
         android:layout_width="35dp"
         android:layout_height="21dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="68dp"
         android:background="#191919"
         android:text="8강"
         android:textAlignment="center"
@@ -22,10 +22,10 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="30dp"
+        android:layout_width="28dp"
         android:layout_height="19dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="60dp"
         android:background="#191919"
         android:text="4강"
         android:textAlignment="center"
@@ -37,22 +37,24 @@
         android:id="@+id/textView8"
         android:layout_width="34dp"
         android:layout_height="19dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
         android:background="#171717"
         android:text="결승"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
     <ImageView
         android:id="@+id/imageView_first"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="244dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView_second"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -62,32 +64,18 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toRightOf="@id/imageView_first"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="54dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="328dp"
-        android:background="#322F2F"
-        android:backgroundTint="#393535"
-        android:text="VS"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView_second"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="308dp"
-        android:layout_height="19dp"
+        android:layout_width="349dp"
+        android:layout_height="21dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="84dp"
         android:layout_marginEnd="50dp"
@@ -101,14 +89,39 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="#151515"
         android:text="16강"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/textView6"
-        app:layout_constraintHorizontal_bias="0.387"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="43dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:srcCompat="@drawable/award" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="45dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="292dp"
+        android:background="#555555"
+        android:fontFamily="@font/jua"
+        android:text="VS"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_second"
+        app:layout_constraintStart_toStartOf="@+id/imageView_first"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
