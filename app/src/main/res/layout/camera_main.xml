@@ -11,13 +11,15 @@
 
     <Button
         android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
+        android:layout_width="129dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
         android:layout_weight="1"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:fontFamily="@font/jua"
         android:text="촬영"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.943"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,74 +27,54 @@
         android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="사진보내기"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:fontFamily="@font/jua"
+        android:text="사진등록"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/choose"
+        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageview"
+        app:layout_constraintVertical_bias="0.121" />
 
     <Button
         android:id="@+id/btn_gallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:fontFamily="@font/jua"
         android:text="갤러리 불러오기"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="392dp"
+        android:layout_height="309dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background"
+        app:layout_constraintVertical_bias="0.475"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/choose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="선택"
-        app:layout_constraintBottom_toTopOf="@+id/btn2"
+        android:layout_width="97dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:fontFamily="@font/jua"
+        android:text="타입선택"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.716"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageview" />
-
-    <Button
-        android:id="@+id/btn_male"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="male"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toEndOf="@+id/imageview"
-        app:layout_constraintTop_toBottomOf="@+id/btn_female"
-        app:layout_constraintVertical_bias="0.037" />
-
-    <Button
-        android:id="@+id/btn_female"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="female"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.465"
-        app:layout_constraintStart_toEndOf="@+id/imageview"
-        tools:layout_editor_absoluteY="312dp" />
-
-    <Button
-        android:id="@+id/btn_cat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="cat"
-        app:layout_constraintBottom_toTopOf="@+id/btn_female"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageview" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

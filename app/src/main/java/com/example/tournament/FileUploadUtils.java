@@ -14,15 +14,15 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class FileUploadUtils {
-    public static void send2Server(File file){
+    public static void send2Server(File file, String account, String type){
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("files", file.getName(), RequestBody.create(MultipartBody.FORM,file))
-                .addFormDataPart("name","JinSeok")
-                .addFormDataPart("sex","man")
+                .addFormDataPart("name",account)
+                .addFormDataPart("sex",type)
                 .build();
         Request request = new Request.Builder()
-                .url("http://172.10.18.154/upload") // Server URL 은 본인 IP를 입력
+                .url("http://192.249.18.154/upload") // Server URL 은 본인 IP를 입력
                 .post(requestBody)
                 .build();
 

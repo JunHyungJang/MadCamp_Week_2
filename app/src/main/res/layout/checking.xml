@@ -23,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="남자"
+            android:fontFamily="@font/jua"
             tools:layout_editor_absoluteX="74dp"
             tools:layout_editor_absoluteY="277dp" />
 
@@ -32,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="여자"
+            android:fontFamily="@font/jua"
             tools:layout_editor_absoluteX="161dp"
             tools:layout_editor_absoluteY="277dp" />
 
@@ -41,6 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="고양이"
+            android:fontFamily="@font/jua"
             tools:layout_editor_absoluteX="249dp"
             tools:layout_editor_absoluteY="277dp" />
 
@@ -52,7 +55,9 @@
         android:id="@+id/start_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="월드컵 start!"
+        android:text="선택완료"
+        android:fontFamily="@font/jua"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -87,8 +87,8 @@ public class choose_one extends Fragment {
             second = inorder+1;
         }
 
-        Glide.with(context).load(Uri.parse("http://172.10.18.154/".concat(URL_list.get(first)))).into(image_first);
-        Glide.with(context).load(Uri.parse("http://172.10.18.154/".concat(URL_list.get(second)))).into(image_second);
+        Glide.with(context).load(Uri.parse("http://192.249.18.154/".concat(URL_list.get(first)))).into(image_first);
+        Glide.with(context).load(Uri.parse("http://192.249.18.154/".concat(URL_list.get(second)))).into(image_second);
         bundle = new Bundle();
 
 

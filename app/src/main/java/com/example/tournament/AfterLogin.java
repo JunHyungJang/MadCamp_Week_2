@@ -40,7 +40,7 @@ public class AfterLogin extends Fragment {
         strEmail = getArguments().getString("email");
 
         Bundle result = new Bundle();
-        result.putString("bundlekey",strNick);
+        result.putString("bundlekey",strEmail);
         getParentFragmentManager().setFragmentResult("key",result);
 
 
