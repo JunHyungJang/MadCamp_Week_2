@@ -50,7 +50,7 @@ public class choose_one extends Fragment {
         progressBar = new ProgressBar(context);
 
         progressBar = root.findViewById(R.id.progressBar);
-        progressBar.setMax(80);
+        progressBar.setMax(100);
         progressBar.setProgressTintList(ColorStateList.valueOf(Color.RED));
 
         URL_list = new ArrayList<>();
