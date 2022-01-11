@@ -41,7 +41,7 @@ public class CameraMain extends Fragment implements Dialog_2.OnInputSelected {
     File sendFile;
     Context context;
     Integer GET_GALLERY_IMAGE = 200;
-    Object [] arr = new Object[3];
+    String [] arr = new String[3];
 
 
 
@@ -97,8 +97,8 @@ public class CameraMain extends Fragment implements Dialog_2.OnInputSelected {
         btn_push.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-
-                FileUploadUtils.send2Server(sendFile);
+                if (arr[0] != null && arr[1]!= null && arr[2]!= null) //arr[0] 계정, arr[1] type
+                FileUploadUtils.send2Server(sendFile,arr[0],arr[1]);
             }
         });
 
@@ -137,7 +137,7 @@ public class CameraMain extends Fragment implements Dialog_2.OnInputSelected {
             }
             btn_push.setEnabled(true);
             imageView.setImageBitmap(bitmap);
-            arr[2] = bitmap;
+
         }
 
         if (requestCode == GET_GALLERY_IMAGE){
@@ -145,17 +145,20 @@ public class CameraMain extends Fragment implements Dialog_2.OnInputSelected {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),uri);
                 imageView.setImageBitmap(bitmap);
-                arr[2] = bitmap;
+//
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            btn_push.setEnabled(true);
+
         }
 }
 
     public void sendInput(String type) {
         arr[1] = type;
         Log.d("asdffads",type);
+        Log.d("fdkfjdkfjd", (String) arr[0]);
     }
 
 
